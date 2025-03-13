@@ -1,0 +1,31 @@
+<!-- find-id-result.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기 결과</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-result-wrapper">
+            <h2 class="auth-title">아이디 찾기 결과</h2>
+            <div class="result-message">
+                <i class="fas fa-check-circle success-icon"></i>
+                <p class="main-message">회원님의 아이디를 찾았습니다.</p>
+                <div class="id-result">
+                    <p>아이디: <strong th:text="${foundId}"></strong></p>
+                    <p class="register-date" th:if="${registerDate}">
+                        가입일: <span th:text="${#temporals.format(registerDate, 'yyyy년 MM월 dd일')}"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="auth-actions">
+                <a href="/find-password" class="btn btn-secondary">비밀번호 찾기</a>
+                <a href="/login" class="btn btn-primary">로그인하기</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

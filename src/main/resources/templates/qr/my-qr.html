@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>내 QR 코드</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="qr-card">
+            <h2>내 QR 코드</h2>
+            <div class="qr-wrapper">
+                <div id="qrcode"></div>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        var qrUrl = /*[[${qrCodeUrl}]]*/ 'default-url';
+        new QRCode(document.getElementById("qrcode"), {
+            text: qrUrl,
+            width: 200,
+            height: 200,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+
+    <style>
+        body {
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .container {
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .qr-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin: 0 0 24px 0;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .qr-wrapper {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            display: inline-block;
+        }
+
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #qrcode img {
+            border-radius: 8px;
+        }
+    </style>
+</body>
+</html>
