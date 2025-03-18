@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>내 QR 코드</title>
+    <title>私のQRコード</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="qr-card">
-            <h2>내 QR 코드</h2>
+            <h2>私のQRコード</h2>
             <div class="qr-wrapper">
                 <div id="qrcode"></div>
             </div>
@@ -17,7 +17,7 @@
     </div>
 
     <script th:inline="javascript">
-        var qrUrl = /*[[${qrCodeUrl}]]*/ 'default-url';
+        var qrUrl = /*[[${qrCodeUrl}]]*/ 'デフォルトURL';
         new QRCode(document.getElementById("qrcode"), {
             text: qrUrl,
             width: 200,

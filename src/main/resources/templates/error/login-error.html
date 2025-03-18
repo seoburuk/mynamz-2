@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
+    <title>ログイン</title>
     <style>
         .login-container {
             max-width: 400px;
@@ -80,38 +80,38 @@
 </head>
 <body>
     <div class="login-container">
-        <h2 style="text-align: center; margin-bottom: 30px;">로그인</h2>
+        <h2 style="text-align: center; margin-bottom: 30px;">ログイン</h2>
         
-        <!-- 에러 메시지 -->
+        <!-- エラーメッセージ -->
         <div th:if="${loginError}" class="error-message show">
-            <p>아이디 또는 비밀번호가 올바르지 않습니다.</p>
+            <p>ユーザーIDまたはパスワードが正しくありません。</p>
         </div>
 
         <form th:action="@{/login}" method="post">
             <div class="form-group">
-                <label for="username">아이디</label>
+                <label for="username">ユーザーID</label>
                 <input type="text" 
                        id="username" 
                        name="username" 
                        required 
                        autocomplete="off"
-                       placeholder="아이디를 입력하세요">
+                       placeholder="ユーザーIDを入力してください">
             </div>
 
             <div class="form-group">
-                <label for="password">비밀번호</label>
+                <label for="password">パスワード</label>
                 <input type="password" 
                        id="password" 
                        name="password" 
                        required
-                       placeholder="비밀번호를 입력하세요">
+                       placeholder="パスワードを入力してください">
             </div>
 
-            <button type="submit" class="login-btn">로그인</button>
+            <button type="submit" class="login-btn">ログイン</button>
 
             <div class="additional-links">
-                <a href="/signup">회원가입</a>
-                <a href="/forgot-password">비밀번호 찾기</a>
+                <a href="/signup">新規登録</a>
+                <a href="/forgot-password">パスワードを忘れた場合</a>
             </div>
         </form>
     </div>

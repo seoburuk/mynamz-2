@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>명함 보기</title>
+    <title>名刺を見る</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
@@ -20,7 +20,7 @@
             padding: 25px;
             margin-bottom: 20px;
             transition: transform 0.2s;
-            max-width: 400px; /* 명함 최대 너비 설정 */
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -31,7 +31,7 @@
             border-bottom: 2px solid #f0f0f0;
             margin-bottom: 20px;
             padding-bottom: 15px;
-            text-align: center; /* 헤더 중앙 정렬 */
+            text-align: center;
         }
         .card-info {
             color: #495057;
@@ -48,7 +48,7 @@
             margin-bottom: 30px;
             padding-bottom: 15px;
             border-bottom: 3px solid #0d6efd;
-            text-align: center; /* 제목 중앙 정렬 */
+            text-align: center;
         }
         .center-container {
             display: flex;
@@ -62,53 +62,54 @@
 <body>
     <div class="container">
         <div class="center-container">
-            <!-- 알림 메시지 -->
+            <!-- 成功メッセージ -->
             <div th:if="${success}" class="alert alert-success alert-dismissible fade show w-100" role="alert">
                 <i class="bi bi-check-circle-fill me-2"></i>
                 <span th:text="${success}"></span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             
+            <!-- エラーメッセージ -->
             <div th:if="${error}" class="alert alert-danger alert-dismissible fade show w-100" role="alert">
                 <i class="bi bi-exclamation-circle-fill me-2"></i>
                 <span th:text="${error}"></span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
 
-            <!-- 페이지 제목 -->
-            <h1 class="page-title w-100" th:text="${ownerName + '님의 명함'}"></h1>
+            <!-- ページタイトル -->
+            <h1 class="page-title w-100" th:text="${ownerName + 'さんの名刺'}"></h1>
 
-            <!-- 명함 목록 -->
+            <!-- 名刺リスト -->
             <div th:each="card : ${cards}" class="w-100">
                 <div class="business-card">
                     <div class="card-header">
-                        <h2 class="h4 mb-0" th:text="${card.name}">이름</h2>
-                        <p class="text-muted mb-0" th:text="${card.position}">직위</p>
+                        <h2 class="h4 mb-0" th:text="${card.name}">名前</h2>
+                        <p class="text-muted mb-0" th:text="${card.position}">役職</p>
                     </div>
                     
                     <div class="card-info">
                         <p class="mb-3 text-center">
                             <i class="bi bi-building"></i>
-                            <span th:text="${card.company}">회사</span>
+                            <span th:text="${card.company}">会社</span>
                         </p>
                         <p class="mb-3 text-center">
                             <i class="bi bi-envelope"></i>
-                            <span th:text="${card.email}">이메일</span>
+                            <span th:text="${card.email}">メール</span>
                         </p>
                         <p class="mb-3 text-center">
                             <i class="bi bi-telephone"></i>
-                            <span th:text="${card.phone}">전화번호</span>
+                            <span th:text="${card.phone}">電話番号</span>
                         </p>
                         <p class="mb-3 text-center" th:if="${card.description}">
                             <i class="bi bi-chat-quote"></i>
-                            <span th:text="${card.description}">설명</span>
+                            <span th:text="${card.description}">説明</span>
                         </p>
                     </div>
 
                     <form th:action="@{'/c/' + ${identifier} + '/save'}" method="post" class="text-center">
                         <input type="hidden" name="cardId" th:value="${card.id}" />
                         <button type="submit" class="btn btn-primary save-button">
-                            <i class="bi bi-save me-2"></i>명함 저장하기
+                            <i class="bi bi-save me-2"></i>名刺を保存
                         </button>
                     </form>
                 </div>

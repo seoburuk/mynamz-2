@@ -3,70 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>명함 목록</title>
+    <title>名刺一覧</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto px-4 py-8">
-        <!-- 상단 헤더 -->
+        <!-- ヘッダー -->
         <div class="text-center mb-8">
-            <h1 class="text-2xl font-bold mb-2" th:text="${ownerName + '님의 명함'}">님의 명함</h1>
+            <h1 class="text-2xl font-bold mb-2" th:text="${ownerName + 'さんの名刺'}">さんの名刺</h1>
             <p th:unless="${isLoggedIn}" class="text-gray-600">
-                명함을 저장하려면 <a href="/login" class="text-blue-500 hover:underline">로그인</a>이 필요합니다.
+                名刺を保存するには <a href="/login" class="text-blue-500 hover:underline">ログイン</a> が必要です。
             </p>
         </div>
 
-        <!-- 명함 목록 -->
+        <!-- 名刺リスト -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div th:each="card : ${cards}" class="bg-white rounded-lg shadow-md p-6">
-                <!-- 명함 정보 -->
+                <!-- 名刺情報 -->
                 <div class="mb-4">
-                    <h2 class="text-xl font-bold mb-2" th:text="${card.name}">이름</h2>
-                    <p class="text-gray-700" th:text="${card.company}">회사</p>
-                    <p class="text-gray-600" th:text="${card.department + ' / ' + card.position}">부서 / 직책</p>
+                    <h2 class="text-xl font-bold mb-2" th:text="${card.name}">名前</h2>
+                    <p class="text-gray-700" th:text="${card.company}">会社</p>
+                    <p class="text-gray-600" th:text="${card.department + ' / ' + card.position}">部署 / 役職</p>
                 </div>
                 
-                <!-- 연락처 정보 -->
+                <!-- 連絡先情報 -->
                 <div class="space-y-2 mb-4">
                     <p th:if="${card.email}" class="text-gray-600">
-                        <span class="font-medium">Email:</span> 
+                        <span class="font-medium">メール:</span> 
                         <span th:text="${card.email}">email@example.com</span>
                     </p>
                     <p th:if="${card.phone}" class="text-gray-600">
-                        <span class="font-medium">Tel:</span> 
+                        <span class="font-medium">電話:</span> 
                         <span th:text="${card.phone}">010-1234-5678</span>
                     </p>
                 </div>
 
-                <!-- 설명 -->
+                <!-- 説明 -->
                 <p th:if="${card.description}" class="text-gray-600 text-sm mb-4" 
-                   th:text="${card.description}">설명</p>
+                   th:text="${card.description}">説明</p>
 
-                <!-- 저장 버튼 -->
+                <!-- 保存ボタン -->
                 <div th:if="${isLoggedIn}" class="mt-4">
                     <button th:onclick="'saveCard(' + ${card.id} + ')'"
                             class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">
-                        저장하기
+                        保存する
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 알림 모달 -->
+    <!-- アラートモーダル -->
     <div id="alertModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center">
         <div class="bg-white p-6 rounded-lg shadow-xl">
-            <p id="alertMessage" class="text-gray-800 mb-4">메시지</p>
+            <p id="alertMessage" class="text-gray-800 mb-4">メッセージ</p>
             <button onclick="closeModal()" 
                     class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">
-                확인
+                確認
             </button>
         </div>
     </div>
 
     <script>
         function saveCard(cardId) {
-            const identifier = window.location.pathname.split('/')[2]; // URL에서 identifier 추출
+            const identifier = window.location.pathname.split('/')[2]; // URLからidentifierを取得
             
             fetch(`/manage/c/${identifier}/save?cardId=${cardId}`, {
                 method: 'POST',
@@ -79,7 +79,7 @@
                 showAlert(message);
             })
             .catch(error => {
-                showAlert('저장 중 오류가 발생했습니다.');
+                showAlert('保存中にエラーが発生しました。');
                 console.error('Error:', error);
             });
         }

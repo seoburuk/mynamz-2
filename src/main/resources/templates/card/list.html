@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>명함 관리 시스템</title>
+    <title>名刺管理システム</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .card {
@@ -22,7 +22,7 @@
             overflow: hidden;
         }
         .my-card::before {
-            content: '내 명함';
+            content: '私の名刺';
             position: absolute;
             top: 10px;
             right: 10px;
@@ -90,18 +90,16 @@
         <!-- 헤더 섹션 -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h2 class="mb-0">명함 관리 시스템</h2>
+                <h2 class="mb-0">名刺管理システム</h2>
                 <p class="text-muted">총 <span th:text="${#lists.size(otherCards)}">0</span>개의 명함</p>
             </div>
             <div>
-                <button class="export-btn me-2" onclick="exportToExcel()">
-                    <i class="bi bi-file-earmark-excel"></i> 엑셀 내보내기
-                </button>
+                
                 <a href="/manage/cards/add" class="btn btn-primary">
-                    <i class="bi bi-plus-circle"></i> 새 명함 추가
+                    <i class="bi bi-plus-circle"></i> 新しい名刺追加
                 </a>
                 <a th:href="@{/}" class="btn btn-outline-secondary">
-                    <i class="bi bi-house"></i> 홈으로
+                    <i class="bi bi-house"></i> ホームへ
                 </a>
             </div>
         </div>
@@ -110,21 +108,21 @@
         <div class="search-form">
             <form th:action="@{/manage/cards}" method="get" class="row g-3" id="searchForm">
                 <div class="col-md-3">
-                    <label class="form-label">검색 조건</label>
+                    <label class="form-label">検索条件</label>
                     <select name="searchType" class="form-select" id="searchType">
-                        <option value="">전체</option>
-                        <option value="name" th:selected="${searchType == 'name'}">이름</option>
-                        <option value="company" th:selected="${searchType == 'company'}">회사</option>
-                        <option value="department" th:selected="${searchType == 'department'}">부서</option>
+                        <option value="">全体.</option>
+                        <option value="name" th:selected="${searchType == 'name'}">名前</option>
+                        <option value="company" th:selected="${searchType == 'company'}">会社</option>
+                        <option value="department" th:selected="${searchType == 'department'}">部署</option>
                     </select>
                 </div>
                 <div class="col-md-7">
-                    <label class="form-label">검색어</label>
+                    <label class="form-label">検索語</label>
                     <div class="input-group">
                         <input type="text" 
                                name="keyword" 
                                class="form-control" 
-                               placeholder="검색어를 입력하세요" 
+                               placeholder="検索ワードを入力してください" 
                                th:value="${keyword}"
                                id="searchInput">
                         <button class="btn btn-outline-secondary" type="button" onclick="clearSearch()">
@@ -134,40 +132,35 @@
                 </div>
                 <div class="col-md-2 d-flex align-items-end">
                     <button class="btn btn-primary w-100" type="submit">
-                        <i class="bi bi-search"></i> 검색
+                        <i class="bi bi-search"></i> 検索
                     </button>
                 </div>
             </form>
-            <!-- 정렬 옵션 -->
-            <div class="mt-3">
-                <button class="sort-btn active" data-sort="name">이름순</button>
-                <button class="sort-btn" data-sort="company">회사순</button>
-                <button class="sort-btn" data-sort="recent">최신순</button>
-            </div>
+            
         </div>
 
         <!-- 내 명함 섹션 -->
         <div class="mb-5" th:if="${myCard != null}">
-            <h3 class="mb-3">내 명함</h3>
+            <h3 class="mb-3">私の名刺</h3>
             <div class="card my-card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <h5 class="card-title" th:text="${myCard.name}">이름</h5>
-                            <h6 class="card-subtitle mb-2 text-muted" th:text="${myCard.company}">회사</h6>
+                            <h5 class="card-title" th:text="${myCard.name}">名前</h5>
+                            <h6 class="card-subtitle mb-2 text-muted" th:text="${myCard.company}">会社</h6>
                             <div class="tags mt-2">
-                                <span class="tag" th:text="${myCard.department}">부서</span>
-                                <span class="tag" th:text="${myCard.position}">직책</span>
+                                <span class="tag" th:text="${myCard.department}">部署</span>
+                                <span class="tag" th:text="${myCard.position}">役職</span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <p class="mb-2">
                                 <i class="bi bi-telephone me-2"></i>
-                                <a th:href="'tel:' + ${myCard.phone}" th:text="${myCard.phone}">전화번호</a>
+                                <a th:href="'tel:' + ${myCard.phone}" th:text="${myCard.phone}">電話</a>
                             </p>
                             <p class="mb-2">
                                 <i class="bi bi-envelope me-2"></i>
-                                <a th:href="'mailto:' + ${myCard.email}" th:text="${myCard.email}">이메일</a>
+                                <a th:href="'mailto:' + ${myCard.email}" th:text="${myCard.email}">メール</a>
                             </p>
                         </div>
                         <div class="col-md-4 text-md-end">
@@ -187,8 +180,8 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h5 class="card-title" th:text="${card.name}">이름</h5>
-                                <h6 class="card-subtitle mb-2 text-muted" th:text="${card.company}">회사</h6>
+                                <h5 class="card-title" th:text="${card.name}">名前</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" th:text="${card.company}">会社</h6>
                             </div>
                             <div class="card-actions">
                                 <div class="dropdown">
@@ -198,13 +191,13 @@
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a class="dropdown-item" th:href="@{/manage/cards/edit/{id}(id=${card.id})}">
-                                                <i class="bi bi-pencil"></i> 수정
+                                                <i class="bi bi-pencil"></i> 編集
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item text-danger" href="#" 
                                                th:onclick="'deleteCard(' + ${card.id} + ')'">
-                                                <i class="bi bi-trash"></i> 삭제
+                                                <i class="bi bi-trash"></i> 削除
                                             </a>
                                         </li>
                                     </ul>
@@ -212,17 +205,17 @@
                             </div>
                         </div>
                         <div class="tags mt-2">
-                            <span class="tag" th:if="${card.department}" th:text="${card.department}">부서</span>
-                            <span class="tag" th:text="${card.position}">직책</span>
+                            <span class="tag" th:if="${card.department}" th:text="${card.department}">部署</span>
+                            <span class="tag" th:text="${card.position}">役職</span>
                         </div>
                         <hr>
                         <p class="card-text mb-2">
                             <i class="bi bi-telephone me-2"></i>
-                            <a th:href="'tel:' + ${card.phone}" th:text="${card.phone}">전화번호</a>
+                            <a th:href="'tel:' + ${card.phone}" th:text="${card.phone}">電話番号</a>
                         </p>
                         <p class="card-text mb-2">
                             <i class="bi bi-envelope me-2"></i>
-                            <a th:href="'mailto:' + ${card.email}" th:text="${card.email}">이메일</a>
+                            <a th:href="'mailto:' + ${card.email}" th:text="${card.email}">イーメール</a>
                         </p>
                         <p th:if="${card.description}" class="card-text text-muted mt-3" th:text="${card.description}">
                             설명
@@ -235,10 +228,10 @@
                 <div class="alert alert-info" role="alert">
                     <i class="bi bi-info-circle me-2"></i>
                     <span th:if="${keyword != null and keyword != ''}">
-                        검색 결과가 없습니다.
+                        検索結果がありません。
                     </span>
                     <span th:unless="${keyword != null and keyword != ''}">
-                        등록된 명함이 없습니다.
+                        登録された名刺がありません。
                     </span>
                 </div>
             </div>
@@ -278,12 +271,12 @@
                 if (response.ok) {
                     window.location.reload();
                 } else {
-                    alert('삭제 중 오류가 발생했습니다.');
+                    alert('削除中にエラーが発生しました。');
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('삭제 중 오류가 발생했습니다.');
+                alert('削除中にエラーが発生しました。');
             })
             .finally(() => {
                 loading.style.display = 'none';
