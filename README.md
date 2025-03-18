@@ -30,7 +30,7 @@ MyNamzは、モバイル環境で簡単に作成、管理、共有できるデ�
 | Backend  | Spring Boot, Thymeleaf, Spring Security             |
 | Database | MySQL, JPA (Hibernate)                              |
 | AI       | OCR, TextRank (未実装)                                 |
-| DevOps   | AWS (EC2, RDS, S3), Let's Encrypt (SSL/TLS) |
+| DevOps   | AWS (EC2, RDS), Let's Encrypt (SSL/TLS) |
 
 ## 3. 主な機能の詳細
 
