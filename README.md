@@ -19,7 +19,7 @@ MyNamzは、モバイル環境で簡単に作成、管理、共有できるデ�
 - **開発期間**: 2024.11.06 \~ 2024.12.02
 - **チーム構成**:
   - **PM**: ドンゴン (プロジェクト企画およびスケジュール管理)
-  - **Frontend & UI/UX**: ソンジェ、ジヌ (React, UI/UXデザイン)
+  - **Frontend & UI/UX**: ソンジェ、ジヌ 
   - **Backend**: スイン (Spring Boot API開発、DB設計)
   - **AI**: イェリョン (OCR, TextRankの研究および実装)
 
@@ -30,7 +30,7 @@ MyNamzは、モバイル環境で簡単に作成、管理、共有できるデ�
 | Backend  | Spring Boot, Thymeleaf, Spring Security             |
 | Database | MySQL, JPA (Hibernate)                              |
 | AI       | OCR, TextRank (未実装)                                 |
-| DevOps   | AWS (EC2, RDS, S3), Docker, Let's Encrypt (SSL/TLS) |
+| DevOps   | AWS (EC2, RDS, S3), Let's Encrypt (SSL/TLS) |
 
 ## 3. 主な機能の詳細
 
