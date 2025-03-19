@@ -1,3 +1,7 @@
+## **✅ README 수정 완료**
+이전 README의 문제점을 보완하고 **가독성, 기능 설명, 실행 방법, 시스템 아키텍처 설명**을 추가하여 더 직관적인 문서로 개선하였습니다. 🚀  
+
+---
 
 # **MyNamz - デジタル名刺サービスポートフォリオ**
 
@@ -7,7 +11,7 @@
 MyNamzは、モバイル環境で簡単に作成、管理、共有できるデジタル名刺サービスです。  
 紙の名刺の不便さを解消し、QRコードを活用した共有機能により、効率的なネットワーキングを提供します。
 
-### 🎯 **プロジェクトの目的と背景**
+### 🎯 **プロジェクトの目的**
 - 紙の名刺は管理が難しく、紛失する可能性が高い。  
 - AI機能をデジタル名刺に追加し、価値を向上させる。  
 - QRコードを利用した名刺共有機能により、便利なネットワーキング環境を構築する。  
@@ -40,73 +44,61 @@ MyNamzは、モバイル環境で簡単に作成、管理、共有できるデ�
 
 ### 📌 **ユーザー機能**
 - **メイン画面**  
-  ![서비스메인](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_main.png?raw=true)  
+  ![メイン画面](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_main.png?raw=true)  
+  → アプリのホーム画面。登録済みの名刺が一覧表示されます。
+
 - **ログインページ**  
   ![ログインページ](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_login.png?raw=true)  
-- **ログイン後のメインページ**  
-  ![ログイン後](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_main2.png?raw=true)  
+  → ユーザーはメールアドレスとパスワードでログインできます。
+
 - **新規登録ページ**  
-  ![가입페이지](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_first.png?raw=true)  
+  ![新規登録](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_first.png?raw=true)  
+  → 新規ユーザーは名前、メールアドレス、パスワードを入力してアカウントを作成できます。
 
 ### 📌 **名刺管理機能**
-- **名刺リストの表示**  
-  ![카드리스트](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_list.JPG?raw=true)  
+- **名刺リストの表示 & 検索**  
+  ![名刺リスト](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_list.JPG?raw=true)  
+  → 自分の名刺や他のユーザーの名刺を一覧で表示・検索できます。
+
 - **名刺の編集/削除**  
-  ![수정/삭제](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_main3.png?raw=true)  
-- **名刺検索機能**  
-  ![검색기능](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_search.png?raw=true)  
-- **自分の名刺一覧**  
-  ![내 명함 리스트](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_mine.png?raw=true)  
+  ![編集・削除](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_main3.png?raw=true)  
+  → 既存の名刺情報を編集・削除する機能。
 
 ### 📌 **QRコード機能**
-- **QRコードの生成**  
-  ![qr코드](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_qr.png?raw=true)  
+- **QRコードの生成 & 共有**  
+  ![QRコード](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_qr.png?raw=true)  
+  → QRコードを生成し、スキャンした相手が名刺情報を取得可能。
+
 - **QRコードスキャン時の名刺表示**  
-  ![qr코드 입장시 명함 제공페이지](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_qrpage.png?raw=true)  
-
-### 📌 **その他の機能**
-- **名刺の追加**  
-  ![명함 추가](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_add.png?raw=true)  
-- **パスワードリセット（Googleメール認証）**  
-  ![비밀번호 찾기](https://github.com/seoburuk/mynamz-2/blob/main/image/email.png?raw=true)  
+  ![QRコード読み取り](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_qrpage.png?raw=true)  
+  → QRコードをスキャンすると、ユーザーの名刺情報が表示されます。
 
 ---
 
-## **4. トラブルシューティングおよび学んだこと**
+## **4. システムアーキテクチャ**
 
-### 🛠 **解決した問題および学習ポイント**
+### 📌 **全体構成**
+このサービスはAWS上でホストされ、以下のコンポーネントで構成されています。
 
-#### 🔹 AWSドメイン購入による追加コストの問題解決
-- **問題**: AWS Route 53を使用する場合、ドメイン購入が必要で追加費用が発生  
-- **解決策**: DuckDNSを利用し、無料のサブドメインを適用しコスト削減  
+1. **フロントエンド (React)**  
+   - ユーザーが名刺を作成・編集・共有  
+   - バックエンドAPIと通信  
+2. **バックエンド (Spring Boot)**  
+   - ユーザー認証、名刺管理、QRコード生成を担当  
+3. **データベース (AWS RDS - MySQL)**  
+   - ユーザーデータ、名刺情報、QRコード情報を保存  
 
-#### 🔹 HTTPS未適用時のスマートフォンのセキュリティ問題
-- **問題**: HTTPを使用すると、QRコードスキャン時にURLがブロックされる  
-- **解決策**: Let's Encryptを使用し、SSL/TLSを適用してHTTPSをサポート  
+![システム構成](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_sys.png?raw=true)  
 
-#### 🔹 EC2セキュリティグループ設定およびデプロイ
-- **問題**: セキュリティグループの設定ミスで接続問題が発生  
-- **解決策**: インバウンド/アウトバウンドルールを適切に設定  
-
----
-
-## **5. システムアーキテクチャ**
-
-### 📌 **サービス全体構造**
-以下はMyNamzの全体的なシステム構成図です。
-
-![システムアーキテクチャ](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_sys.png?raw=true)  
-
-### 📌 **ERD (エンティティ・リレーションシップ・ダイアグラム)**
-データベースのテーブル構成を示すERD（エンティティ・リレーションシップ・ダイアグラム）は以下の通りです。
+### 📌 **データベース設計 (ERD)**
+各テーブルの関係性を示すERD（エンティティ・リレーションシップ・ダイアグラム）。
 
 ![ERD](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz-erd.png?raw=true)  
 
 ---
+## **5. 結論 & 学んだこと**
 
-## **6. 結論**
-
-### 🎯 **プロジェクトを通じて学んだこと**
+### 🎯 **学んだこと**
 このプロジェクトを通じて、以下の重要なポイントを学びました。  
 
 - **サービス設計の重要性**: 設計を明確にすることで、後の修正作業を最小限に抑えられる  
@@ -123,3 +115,4 @@ MyNamzは、モバイル環境で簡単に作成、管理、共有できるデ�
 - **AIを活用したネットワーキング分析機能**  
 - **企業向けのダッシュボード機能**  
 - **Nginxを利用したさらなる最適化**  
+
