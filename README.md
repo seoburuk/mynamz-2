@@ -69,6 +69,13 @@ MyNamzは、モバイル環境で簡単に作成、管理、共有できるデ�
   ![QRコード読み取り](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_qrpage.png?raw=true)  
   → QRコードをスキャンすると、ユーザーの名刺情報が表示されます。
 
+### 📌 パスワードリセットリクエスト ###
+- **📩 パスワードリセットメールの通知**
+  ![email](https://github.com/seoburuk/mynamz-2/blob/main/image/email.png?raw=true)
+  → ユーザーが「パスワードを忘れた場合」のリンクをクリックし、登録メールアドレスを入力すると、リセットメールが送信されます。
+
+
+
 ---
 
 ## **4. システムアーキテクチャ**
