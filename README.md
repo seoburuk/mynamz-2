@@ -74,20 +74,10 @@ MyNamzは、モバイル環境で簡単に作成、管理、共有できるデ�
 ## **4. システムアーキテクチャ**
 
 ### 📌 **全体構成**
-このサービスはAWS上でホストされ、以下のコンポーネントで構成されています。
-
-1. **フロントエンド (React)**  
-   - ユーザーが名刺を作成・編集・共有  
-   - バックエンドAPIと通信  
-2. **バックエンド (Spring Boot)**  
-   - ユーザー認証、名刺管理、QRコード生成を担当  
-3. **データベース (AWS RDS - MySQL)**  
-   - ユーザーデータ、名刺情報、QRコード情報を保存  
 
 ![システム構成](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_sys.png?raw=true)  
 
 ### 📌 **データベース設計 (ERD)**
-各テーブルの関係性を示すERD（エンティティ・リレーションシップ・ダイアグラム）。
 
 ![ERD](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz-erd.png?raw=true)  
 
