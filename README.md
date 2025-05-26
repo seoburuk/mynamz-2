@@ -52,10 +52,6 @@ MyNamzは、モバイル環境で簡単に作成、管理、共有できるデ�
   → 新規ユーザーは名前、メールアドレス、パスワードを入力してアカウントを作成できます。
 
 ### 📌 **名刺管理機能**
-- **名刺リストの表示 & 検索**  
-  ![名刺リスト](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_list.JPG?raw=true)  
-  → 自分の名刺や他のユーザーの名刺を一覧で表示・検索できます。
-
 - **名刺の編集/削除**  
   ![編集・削除](https://github.com/seoburuk/mynamz-2/blob/main/image/mynamz_main3.png?raw=true)  
   → 既存の名刺情報を編集・削除する機能。
